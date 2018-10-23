@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+const routes = require("./routes/routes");
+const bodyParser = require("body-parser");
 
-app.get("/api", (req, res) => {
-  res.send({ hi: "there" });
-});
+//Middleware
+app.use(bodyParser.json());
+
+routes(app);
 
 module.exports = app;
